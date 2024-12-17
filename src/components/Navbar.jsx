@@ -35,6 +35,7 @@ const Navbar = () => {
 
       <nav className="navbar navbar-expand-lg custom-navbar">
           <div className="container">
+            
               <a className="navbar-brand" href="#">TECMETAVERSE</a>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                   <span className="navbar-toggler-icon"></span>
