@@ -36,7 +36,7 @@ const Bigdiv = () => {
   // Function to handle the button click
   const handleButtonClick = () => {
     alert('Redirected to services');
-    // Uncomment the following line when your navbar and routing are set up:
+    // Uncomme the following line when your navbar and routing are set up:
     // history.push('/services');
   };
 
