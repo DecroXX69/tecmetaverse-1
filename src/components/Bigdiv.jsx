@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom'; // For navigation
+import { useNavigate } from 'react-router-dom';
 
 const Bigdiv = () => {
-  const history = useHistory(); // Initialize useHistory for redirect
+  const navigate = useNavigate(); // Initialize useNavigate for redirect
   const [index, setIndex] = useState(0);
 
-  // Arrays for background images and text
   const images = [
-    'https://via.placeholder.com/1600x900.png?text=Image+1',
-    'https://via.placeholder.com/1600x900.png?text=Image+2',
-    'https://via.placeholder.com/1600x900.png?text=Image+3'
+    'https://picsum.photos/1600/900?random=1',
+    'https://picsum.photos/1600/900?random=2',
+    'https://picsum.photos/1600/900?random=3'
   ];
 
   const titles = [
@@ -24,25 +23,21 @@ const Bigdiv = () => {
     'We deliver customized strategies to help businesses scale in the digital era.'
   ];
 
-  // Interval to change images and text
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setIndex(prevIndex => (prevIndex + 1) % images.length); // Loop through the images and text
-    }, 5000); // 5 seconds interval for image/text change
-
-    return () => clearInterval(intervalId); // Cleanup on unmount
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
-  // Function to handle the button click
   const handleButtonClick = () => {
     alert('Redirected to services');
-    // Uncomme the following line when your navbar and routing are set up:
-    // history.push('/services');
+    navigate('/services'); // Navigate to services page (set up route if required)
   };
 
   return (
-    <div 
-      className="container-fluid mt-5" 
+    <div
+      className="container-fluid mt-5"
       style={{
         padding: '100px 0',
         backgroundImage: `url(${images[index]})`,
@@ -57,16 +52,13 @@ const Bigdiv = () => {
         <div className="text-center">
           <h1 className="display-4 mb-4">{titles[index]}</h1>
           <p className="lead mb-4">{descriptions[index]}</p>
-          <button 
-            className="btn btn-primary btn-lg mt-4" 
-            onClick={handleButtonClick}
-          >
+          <button className="btn btn-primary btn-lg mt-4" onClick={handleButtonClick}>
             Get Started
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Bigdiv;

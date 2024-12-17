@@ -1,12 +1,16 @@
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Home from './components/Home';
 function App() {
   return (
-    <div>
-      <Navbar/>
+    <Router>
     
-    </div>
+      <Home/>
+    
+    
+    </Router>
   );
 }
 
